@@ -108,15 +108,21 @@ input, select {
   width:400px;
   height:500px;
 }
-p{
-  color: white;
-}
 .show{
+  position: relative;
   width: 100%;
   height: 90px;
   border-radius: 20px;
   background: rgb(56, 55, 55);
 }
+#content{
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  font-size: 48px;
+  color: white;
+}
+
 button{
   width: 90px;
   height: 90px;
