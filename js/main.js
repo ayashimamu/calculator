@@ -1,8 +1,20 @@
-const numbers = document.getElementsByClassName("number");
-let show = [];
+
+const number = document.getElementsByClassName("number");
+const plus = document.getElementById("plus");
+const formula = [];
+const equal = document.getElementById("equal");
+let show = document.getElementById('content');
+　
 for (let i = 0; i < 10; i++) {
-  numbers[i].addEventListener('click', function () {
-    show.push(numbers[i].value);
+  number[i].addEventListener('click', function () {
+    show.innerHTML = show.innerHTML + number[i].value;
   }, false);
 }
-this.show = document.getElementById('content').innerHTML;
+  plus.addEventListener('click', function () {
+    const num = Number(show.innerHTML);
+    formula.push(num);
+  });
+  equal.addEventListener('click', function (num) {
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    console.log(formula.reduce(reducer));
+});
