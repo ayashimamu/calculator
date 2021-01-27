@@ -1,8 +1,11 @@
 
 const number = document.getElementsByClassName("number");
-const plus = document.getElementById("plus");
-const formula = [];
-const equal = document.getElementById("equal");
+const plus = document.getElementById("plus").value;
+const minus = document.getElementById("minus").value;
+const mult = document.getElementById("mult").value;
+const divide = document.getElementById("divide").value;
+const numbers = [];
+const calculate = [];
 let show = document.getElementById('content');
 　
 for (let i = 0; i < 10; i++) {
@@ -10,11 +13,38 @@ for (let i = 0; i < 10; i++) {
     show.innerHTML = show.innerHTML + number[i].value;
   }, false);
 }
-  plus.addEventListener('click', function () {
-    const num = Number(show.innerHTML);
-    formula.push(num);
+document.getElementById("plus").addEventListener('click',
+  function () {
+     const num = Number(show.innerHTML);
+     numbers.push(num);
+    show.innerHTML = show.innerHTML + plus;
+    calculate.push(plus);
   });
-  equal.addEventListener('click', function (num) {
-    const reducer = (accumulator, currentValue) => accumulator + currentValue;
-    console.log(formula.reduce(reducer));
-});
+document.getElementById("minus").addEventListener('click',
+  function () {
+    const num = Number(show.innerHTML);
+    numbers.push(num);
+    show.innerHTML = show.innerHTML + minus;
+    calculate.push(minus);
+  });
+document.getElementById("mult").addEventListener('click',
+  function () {
+    const num = Number(show.innerHTML);
+    numbers.push(num);
+    show.innerHTML = show.innerHTML + mult;
+    calculate.push(mult);
+  });
+  document.getElementById("divide").addEventListener('click',
+  function () {
+    const num = Number(show.innerHTML);
+    numbers.push(num);
+    show.innerHTML = show.innerHTML + divide;
+    calculate.push(divide);
+  });
+document.getElementById("equal").addEventListener('click',
+  function () {
+    const total = numbers.reduce(function (sum,element) {
+      return sum + element;
+    }, 0);
+    console.log(total);
+})
